@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 interface propscontracts { 
-    counter?: number
+    
  }
 
  interface statecontracts {
@@ -29,14 +29,27 @@ class App extends React.Component<propscontracts, statecontracts> {
         })
     }
 
+    changeStartingValue(event: React.ChangeEvent<HTMLInputElement>) {
+        this.setState({
+            count: Number(event.target.value)
+        })
+    }
+
+    resetCounter() {
+        this.setState({
+            count: 0
+        })
+    }
+
     public render(): JSX.Element {
         return(
          <div>
-             <div>0</div>
+             <div><input onChange= {(event: React.ChangeEvent<HTMLInputElement>) => this.changeStartingValue(event)} type="text" value={this.state.count}/></div>
              <div>
                  <button onClick={() => this.addOne()}>+</button>
-                 <button onClick={() => this.minusOne}>-</button>
+                 <button onClick={() => this.minusOne()}>-</button>
              </div>
+             <div><button onClick={() => this.resetCounter()}>Reset</button></div>
          </div>
         );
     }
