@@ -5,7 +5,8 @@
     "starter-global": "npm install gulp-cli@latest jspm@0.17.0-beta.47 -g",
     "starter-all": "npm run starter-global && npm run starter",
     "prestarter": "echo Preparing project...",
-    "starter": "npm install && jspm install"
+    "starter": "npm install && jspm install",
+    "start": "jspm install"
   },
   "dependencies": {
     "react": "^16.4.1",
